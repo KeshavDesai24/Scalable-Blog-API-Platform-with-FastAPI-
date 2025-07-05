@@ -104,7 +104,7 @@ jobs:
         with:
           host: ${{secrets.UBUNTU_PROD_HOST}}
           username: ${{secrets.UBUNTU_PROD_USERNAME}}
-          password: ${{secrets.UBUNTU_PROD_PASSWORD}}
+          key: ${{secrets.UBUNTU_PROD_KEY}}
           script: |
             cd app/src
             git pull
