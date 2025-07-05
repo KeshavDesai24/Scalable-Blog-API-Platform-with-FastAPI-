@@ -93,6 +93,19 @@ jobs:
     runs-on: ubuntu-latest
     needs: [build]
 
+    environment:
+      name: postnexus-ubuntu-prod
     steps:
       - name:  Starting Deployment
         run: echo "Starting deployment process..."
+      
+      - name: Deployment to Ubuntu Server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{secrets.UBUNTU_PROD_HOST}}
+          username: ${{secrets.UBUNTU_PROD_USERNAME}}
+          password: ${{secrets.UBUNTU_PROD_PASSWORD}}
+          script: |
+            cd app/src
+            git pull
+            echo ${{secrets.UBUNTU_PROD_PASSWORD}} | sudo -S systemctl restart api
