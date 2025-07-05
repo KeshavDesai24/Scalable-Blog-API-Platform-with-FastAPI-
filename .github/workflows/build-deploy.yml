@@ -1,0 +1,17 @@
+name: Build and Deploy Code
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Greet from workflow
+        run: echo "Hi Keshav! Build and deploy pipeline triggered successfully."
+
