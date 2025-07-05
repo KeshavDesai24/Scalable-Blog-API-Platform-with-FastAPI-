@@ -26,5 +26,5 @@ app.include_router(vote.router)
 
 @app.get("/")
 async def root():
-    return {"message": " Hello there, A warm welcome from PostNexusm —— your API is live and ready!! "}
+    return {"message": " Hello there, A warm welcome from PostNexus —— your API is live and ready!! "}
 
